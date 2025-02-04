@@ -75,6 +75,18 @@ int bad_insert_element_at_pos(struct airport *path, char *name, int pos) {
     return 0;
 }
 
+void print_list(struct airport * curr){
+	if(!curr && !curr->next){
+		printf("This airport is %s, and the next airport is %s", curr->name, curr->next->name);
+	}
+	else if (!curr){
+		printf("This airport is %s, and it is the last airport", curr->name);
+	}
+	if(!curr){
+		print_list(curr->next);
+	}
+} 
+
 /* Write your tests below!
  * 
  * As explained in the lab instructions, "assert" checks if the argument is true (nonzero).
@@ -89,6 +101,7 @@ void test_free_path_1() {
     const char *path_array[] = {"SAN", "LAS", "DTW"};
     struct airport *path = create_from_array(path_array, 3);
 
+    print_list(path);
     assert(strcmp(path->name, "SAN") == 0);
 
     bad_free_path_1(path);
@@ -96,4 +109,5 @@ void test_free_path_1() {
 
 int main(void) {
     test_free_path_1();
+
 }
