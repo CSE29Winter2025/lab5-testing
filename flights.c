@@ -21,7 +21,7 @@ struct airport {
 struct airport *create_from_array(const char **array, int length) {
     struct airport *first = NULL;
 
-    for (int i = length - 1; i >= 0; ++i) {
+    for (int i = length - 1; i >= 0; --i) {
         struct airport *new = malloc(sizeof(struct airport));
         strncpy(new->name, array[i], 4);
         new->next = first;
