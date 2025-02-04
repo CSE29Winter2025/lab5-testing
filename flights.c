@@ -76,15 +76,16 @@ int bad_insert_element_at_pos(struct airport *path, char *name, int pos) {
 }
 
 void print_list(struct airport * curr){
-	if(!curr && !curr->next){
-		printf("This airport is %s, and the next airport is %s", curr->name, curr->next->name);
+	if(curr && curr->next){
+		printf("This airport is %s, and the next airport is %s\n", curr->name, curr->next->name);
 	}
-	else if (!curr){
-		printf("This airport is %s, and it is the last airport", curr->name);
+	else if (curr){
+		printf("This airport is %s, and it is the last airport\n", curr->name);
 	}
-	if(!curr){
+	if(curr){
 		print_list(curr->next);
 	}
+	fflush(stdout);
 } 
 
 /* Write your tests below!
