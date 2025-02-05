@@ -1,7 +1,7 @@
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
 
 /* NOTE: In this file, you will encounter a few standard library functions you may not have seen
  * yet, like strcpy and strcmp. We encourage you to read the documentation for these functions
@@ -75,21 +75,19 @@ int bad_insert_element_at_pos(struct airport *path, char *name, int pos) {
     return 0;
 }
 
-void print_list(struct airport * curr){
-	if(curr && curr->next){
-		printf("This airport is %s, and the next airport is %s\n", curr->name, curr->next->name);
-	}
-	else if (curr){
-		printf("This airport is %s, and it is the last airport\n", curr->name);
-	}
-	if(curr){
-		print_list(curr->next);
-	}
-	fflush(stdout);
-} 
+void print_list(struct airport *curr) {
+    if (curr && curr->next) {
+        printf("This airport is %s, and the next airport is %s\n", curr->name, curr->next->name);
+    } else if (curr) {
+        printf("This airport is %s, and it is the last airport\n", curr->name);
+    }
+    if (curr) {
+        print_list(curr->next);
+    }
+}
 
 /* Write your tests below!
- * 
+ *
  * As explained in the lab instructions, "assert" checks if the argument is true (nonzero).
  * If the argument is true, the function returns, and nothing special happens.
  * If the argument is false, the function prints an "Assertion failed" error and stops the program.
@@ -110,5 +108,5 @@ void test_free_path_1() {
 
 int main(void) {
     test_free_path_1();
-
+    // Remember to call your test functions here
 }
